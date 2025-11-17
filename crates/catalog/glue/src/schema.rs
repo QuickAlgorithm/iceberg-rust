@@ -164,6 +164,7 @@ impl SchemaVisitor for GlueSchemaBuilder {
             PrimitiveType::Double => "double".to_string(),
             PrimitiveType::Date => "date".to_string(),
             PrimitiveType::Timestamp => "timestamp".to_string(),
+            PrimitiveType::Timestamptz => "timestamp".to_string(),
             PrimitiveType::TimestampNs => "timestamp_ns".to_string(),
             PrimitiveType::TimestamptzNs => "timestamptz_ns".to_string(),
             PrimitiveType::Time | PrimitiveType::String | PrimitiveType::Uuid => {
@@ -176,7 +177,7 @@ impl SchemaVisitor for GlueSchemaBuilder {
             _ => {
                 return Err(Error::new(
                     ErrorKind::FeatureUnsupported,
-                    "Conversion from 'Timestamptz' is not supported",
+                    "Conversion from type is not supported",
                 ));
             }
         };
